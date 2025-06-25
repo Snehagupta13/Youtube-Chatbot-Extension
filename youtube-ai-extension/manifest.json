@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube AI Chat",
+    "version": "1.0",
+    "description": "Ask questions about YouTube videos using AI",
+    "permissions": ["tabs", "activeTab", "scripting"],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
+  

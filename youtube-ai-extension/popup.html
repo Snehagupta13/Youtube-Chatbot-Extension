@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube AI Assistant</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    .video-id {
+      background: #f1f1f1;
+      padding: 5px;
+      border-radius: 4px;
+      font-size: 12px;
+      word-break: break-all;
+      margin: 10px 0;
+    }
+    .mode-selector {
+      display: flex;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+    }
+    .mode-btn {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      background: #f1f1f1;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .mode-btn.active {
+      background: #4285f4;
+      color: white;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      resize: none;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+    #response {
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      min-height: 50px;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      background: #f9f9f9;
+    }
+    .error {
+      color: #d32f2f;
+      font-size: 14px;
+    }
+    .loader {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #4285f4;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" class="logo" alt="Logo">
+    <h3 style="margin:0">YouTube AI Assistant</h3>
+  </div>
+  
+  <div id="videoInfo">
+    <small>Current Video ID:</small>
+    <div class="video-id" id="videoId">Not on YouTube</div>
+  </div>
+  
+  <div class="mode-selector">
+    <button id="chatModeBtn" class="mode-btn active">Chat with Video</button>
+    <button id="summarizeModeBtn" class="mode-btn">Summarize Video</button>
+  </div>
+  
+  <div id="chatContainer">
+    <textarea id="question" rows="4" placeholder="Ask anything about this video..."></textarea>
+    <button id="askBtn">Ask Question</button>
+  </div>
+  
+  <div id="summarizeContainer" style="display:none">
+    <button id="summarizeBtn">Generate Summary</button>
+  </div>
+  
+  <div id="response"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
